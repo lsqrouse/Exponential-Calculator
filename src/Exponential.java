@@ -68,6 +68,5 @@ public class Exponential {
             return out;
         }
         return out;
-
     }
 }
