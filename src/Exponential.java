@@ -35,7 +35,10 @@ public class Exponential {
                 double desired = s.nextDouble();
                 s.nextLine();
                 out = findYear(rate, desired, num, 0);
-                System.out.println("The value will be " + desired + " in " + out + " years.");
+                if (out == 0)
+                    System.out.println("The value will be " + desired + " in " + out + " years.");
+                else
+                    System.out.println("The value could not be calculated.");
                 break;
             case "H" :
                 System.out.println("PLease enter the half life");
@@ -49,7 +52,10 @@ public class Exponential {
                 end = s.nextInt();
                 s.nextLine();
                 out = halfLifeAmount(rate, start, end,num);
-                System.out.println("The value in " + end + " years is " + out);
+                if (out == 0)
+                    System.out.println("The value in " + end + " units of time is " + out);
+                else
+                    System.out.println("The value could not be calculated.");
                 break;
         }
 
@@ -89,8 +95,11 @@ public class Exponential {
         else {
             start += halfLife;
             value = value/2;
-            double out = 0;
-            return halfLifeAmount(halfLife, start, end, value);
+            try {
+                return halfLifeAmount(halfLife, start, end, value);
+            } catch (Exception e) {
+                return 0;
+            }
         }
     }
 }
