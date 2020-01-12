@@ -4,7 +4,8 @@ public class Driver {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Which mode would you like to use?\nEnter [V] to find a value after x years" +
-                "\nEnter [Y] to find how many years it would take to get to a value.");
+                "\nEnter [Y] to find how many years it would take to get to a value." +
+                "\n Enter [A] to solve an Arithmatic Expression");
         String in = s.nextLine();
         switch (in.toUpperCase()) {
             case "V" :
@@ -54,6 +55,10 @@ public class Driver {
                 else
                     System.out.println("The value could not be calculated.");
                 break;
+            case "A" :
+                System.out.println("Please Enter a the Expression: ");
+                in = s.nextLine();
+                System.out.println("The value of this expression is " + Arithmetic.solve(in));
         }
 
     }

@@ -32,6 +32,8 @@ public class Exponential {
     public static double halfLifeAmount(double halfLife, int start, int end, double value) {
         if (start == end)
             return value;
+        if ((end - start) < 0)
+            return value;
         else {
             start += halfLife;
             value = value/2;
